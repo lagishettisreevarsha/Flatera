@@ -1,0 +1,29 @@
+<h2>Amenities</h2>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+<div *ngIf="success" class="success">{{ success }}</div>
+
+<h3>Add New Amenity</h3>
+<form (ngSubmit)="addAmenity()">
+  <input type="text" [(ngModel)]="newAmenity.name" name="name" placeholder="Name" required>
+  <input type="text" [(ngModel)]="newAmenity.description" name="description" placeholder="Description">
+  <button type="submit">Add Amenity</button>
+</form>
+
+<h3>Existing Amenities</h3>
+<div *ngIf="!amenities.length">No amenities found.</div>
+<ul>
+  <li *ngFor="let amenity of amenities">
+    <div *ngIf="editingAmenity && editingAmenity.id === amenity.id">
+      <input type="text" [(ngModel)]="editingAmenity.name" name="editName">
+      <input type="text" [(ngModel)]="editingAmenity.description" name="editDescription">
+      <button (click)="updateAmenity()">Save</button>
+      <button (click)="cancelEdit()">Cancel</button>
+    </div>
+    <div *ngIf="!editingAmenity || editingAmenity.id !== amenity.id">
+      <strong>{{ amenity.name }}</strong> - {{ amenity.description || 'No description' }}
+      <button (click)="editAmenity(amenity)">Edit</button>
+      <button (click)="deleteAmenity(amenity.id)">Delete</button>
+    </div>
+  </li>
+</ul>

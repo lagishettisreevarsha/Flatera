@@ -1,0 +1,68 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <!-- Header -->
+    <div class="auth-header">
+      <h1>Flatera</h1>
+      <p>Join the Luxury Apartment Community</p>
+    </div>
+
+    <!-- Register Form -->
+    <div class="form-container">
+      <form (ngSubmit)="onRegister()" class="auth-form">
+        <div class="form-group">
+          <label for="reg-name">Full Name</label>
+          <input
+            type="text"
+            id="reg-name"
+            name="name"
+            [(ngModel)]="name"
+            placeholder="John Doe"
+            required />
+        </div>
+
+        <div class="form-group">
+          <label for="reg-email">Email Address</label>
+          <input
+            type="email"
+            id="reg-email"
+            name="email"
+            [(ngModel)]="email"
+            placeholder="you@example.com"
+            required />
+        </div>
+
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input
+            type="password"
+            id="reg-password"
+            name="password"
+            [(ngModel)]="password"
+            placeholder="••••••••"
+            required />
+        </div>
+
+        <div class="form-group">
+          <label for="reg-role">Account Type</label>
+          <select
+            id="reg-role"
+            name="role"
+            [(ngModel)]="role"
+            required>
+            <option value="" disabled selected>Select your role</option>
+            <option value="public">Tenant / Guest</option>
+            <option value="admin">Property Admin</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Create Account</button>
+      </form>
+
+      <div class="error" *ngIf="error">{{ error }}</div>
+
+      <div class="footer-link">
+        Already have an account? <a routerLink="/login">Login here</a>
+      </div>
+    </div>
+  </div>
+</div>

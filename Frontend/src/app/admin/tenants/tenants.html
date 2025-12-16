@@ -1,0 +1,8 @@
+<div>
+  <h3>Tenants</h3>
+  <ul>
+    <li *ngFor="let t of tenants">
+      {{ t.user_name || t.name }} - Flat {{ t.flat_no || t.flat_id }} - Tower {{ t.tower_name || t.tower_id }}
+    </li>
+  </ul>
+</div>

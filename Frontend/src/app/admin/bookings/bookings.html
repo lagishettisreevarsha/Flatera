@@ -1,0 +1,10 @@
+<div>
+  <h3>Pending Bookings</h3>
+  <ul>
+    <li *ngFor="let b of bookings">
+      #{{ b.id }} - {{ b.tenant_name || b.user_name || 'User' }} - Flat {{ b.flat_id }} - Status: {{ b.status }}
+      <button (click)="approve(b)">Approve</button>
+      <button (click)="decline(b)">Decline</button>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,44 @@
+<div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+<div *ngIf="success" class="success">{{ success }}</div>
+  <h3>Flats</h3>
+  <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+    <input [(ngModel)]="newFlat.flat_no" name="flat_no" placeholder="Flat Number" />
+    <input type="number" [(ngModel)]="newFlat.bedrooms" name="bedrooms" placeholder="Bedrooms" />
+    <input type="number" [(ngModel)]="newFlat.sqft" name="sqft" placeholder="Square Feet" />
+    <input type="number" [(ngModel)]="newFlat.rent" name="rent" placeholder="Rent Amount" />
+    <label><input type="checkbox" [(ngModel)]="newFlat.is_available" name="is_available" /> Available</label>
+    <select [(ngModel)]="newFlat.tower_id" name="tower_id">
+      <option [ngValue]="null">Select Tower</option>
+      <option *ngFor="let t of towers" [ngValue]="t.id">{{ t.name }}</option>
+    </select>
+    <button (click)="addFlat()">Add Flat</button>
+  </div>
+</div>
+
+<ul>
+  <li *ngFor="let f of flats" style="margin:6px 0;">
+    <div *ngIf="editingFlat && editingFlat.id === f.id" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+      <input [(ngModel)]="editingFlat.flat_no" name="edit_flat_no" placeholder="Flat Number" />
+      <input type="number" [(ngModel)]="editingFlat.bedrooms" name="edit_bedrooms" placeholder="Bedrooms" style="width:90px;" />
+      <input type="number" [(ngModel)]="editingFlat.sqft" name="edit_sqft" placeholder="Square Feet" style="width:100px;" />
+      <input type="number" [(ngModel)]="editingFlat.rent" name="edit_rent" placeholder="Rent Amount" style="width:100px;" />
+      <label><input type="checkbox" [(ngModel)]="editingFlat.is_available" name="edit_is_available" /> Available</label>
+      <select [(ngModel)]="editingFlat.tower_id" name="edit_tower_id">
+        <option *ngFor="let t of towers" [ngValue]="t.id">{{ t.name }}</option>
+      </select>
+      <button (click)="updateFlat()">Save</button>
+      <button (click)="cancelEdit()">Cancel</button>
+    </div>
+    <div *ngIf="!editingFlat || editingFlat.id !== f.id" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+      <span>#{{ f.flat_no }}</span>
+      <span>{{ f.bedrooms }} bed</span>
+      <span>{{ f.sqft }} sqft</span>
+      <span>${{ f.rent }}</span>
+      <span [class]="f.is_available ? 'available' : 'unavailable'">{{ f.is_available ? 'Available' : 'Unavailable' }}</span>
+      <span>Tower: {{ getTowerName(f.tower_id) }}</span>
+      <button (click)="editFlat(f)">Edit</button>
+      <button (click)="deleteFlat(f.id)">Delete</button>
+    </div>
+  </li>
+</ul>

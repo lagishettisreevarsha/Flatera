@@ -1,0 +1,18 @@
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+  <h3>Towers</h3>
+  <div>
+    <input [(ngModel)]="newTowerName" name="towerName" placeholder="Tower name" />
+    <button (click)="create()" type="button">Add</button>
+  </div>
+</div>
+
+<div *ngIf="error" style="color:#b00020; margin:6px 0;">{{ error }}</div>
+<div *ngIf="success" style="color:#1b5e20; margin:6px 0;">{{ success }}</div>
+
+<ul>
+  <li *ngFor="let t of towers">
+    {{ t.name }}
+    <button (click)="update(t)">Edit</button>
+    <button (click)="delete(t)">Delete</button>
+  </li>
+</ul>

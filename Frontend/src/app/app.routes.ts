@@ -12,8 +12,11 @@ import { Towers } from './admin/towers/towers';
 import { FlatsComponent } from './admin/flats/flats';
 import { AmenitiesComponent } from './admin/amenities/amenities';
 import { Tenants } from './admin/tenants/tenants';
+import { Landing } from './landing/landing';
 
 export const routes: Routes = [
+  { path: '', redirectTo: 'register', pathMatch: 'full' },
+  { path: 'landing', component: Landing },
   { path: 'login', component: Login, canActivate: [guestGuard] },
   { path: 'register', component: Register, canActivate: [guestGuard]},
 
@@ -39,5 +42,4 @@ export const routes: Routes = [
     ]
   },
 
-  { path: '', redirectTo: 'register', pathMatch: 'full' }
 ];

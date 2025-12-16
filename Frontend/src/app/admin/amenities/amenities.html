@@ -1,29 +1,99 @@
-<h2>Amenities</h2>
+<div class="amenities-page">
 
-<div *ngIf="error" class="error">{{ error }}</div>
-<div *ngIf="success" class="success">{{ success }}</div>
+  <!-- Page Header -->
+  <div class="page-header">
+    <h2>Amenities</h2>
+    <p class="subtitle">Manage amenities available in your properties</p>
+  </div>
 
-<h3>Add New Amenity</h3>
-<form (ngSubmit)="addAmenity()">
-  <input type="text" [(ngModel)]="newAmenity.name" name="name" placeholder="Name" required>
-  <input type="text" [(ngModel)]="newAmenity.description" name="description" placeholder="Description">
-  <button type="submit">Add Amenity</button>
-</form>
+  <!-- Alerts -->
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="success" class="success">{{ success }}</div>
 
-<h3>Existing Amenities</h3>
-<div *ngIf="!amenities.length">No amenities found.</div>
-<ul>
-  <li *ngFor="let amenity of amenities">
-    <div *ngIf="editingAmenity && editingAmenity.id === amenity.id">
-      <input type="text" [(ngModel)]="editingAmenity.name" name="editName">
-      <input type="text" [(ngModel)]="editingAmenity.description" name="editDescription">
-      <button (click)="updateAmenity()">Save</button>
-      <button (click)="cancelEdit()">Cancel</button>
+  <!-- Add Amenity -->
+  <div class="card">
+    <h3>Add New Amenity</h3>
+
+    <form class="amenity-form" (ngSubmit)="addAmenity()">
+      <div class="form-group">
+        <label>Name</label>
+        <input
+          type="text"
+          [(ngModel)]="newAmenity.name"
+          name="name"
+          placeholder="Amenity name"
+          required />
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <input
+          type="text"
+          [(ngModel)]="newAmenity.description"
+          name="description"
+          placeholder="Optional description" />
+      </div>
+
+      <button type="submit" class="btn-primary">
+        Add Amenity
+      </button>
+    </form>
+  </div>
+
+  <!-- Existing Amenities -->
+  <div class="card">
+    <h3>Existing Amenities</h3>
+
+    <div *ngIf="!amenities.length" class="empty-state">
+      No amenities found.
     </div>
-    <div *ngIf="!editingAmenity || editingAmenity.id !== amenity.id">
-      <strong>{{ amenity.name }}</strong> - {{ amenity.description || 'No description' }}
-      <button (click)="editAmenity(amenity)">Edit</button>
-      <button (click)="deleteAmenity(amenity.id)">Delete</button>
-    </div>
-  </li>
-</ul>
+
+    <ul class="amenity-list">
+      <li *ngFor="let amenity of amenities" class="amenity-item">
+
+        <!-- Edit Mode -->
+        <div
+          class="amenity-edit"
+          *ngIf="editingAmenity && editingAmenity.id === amenity.id">
+
+          <input
+            type="text"
+            [(ngModel)]="editingAmenity.name"
+            name="editName" />
+
+          <input
+            type="text"
+            [(ngModel)]="editingAmenity.description"
+            name="editDescription" />
+
+          <div class="actions">
+            <button class="btn-primary" (click)="updateAmenity()">Save</button>
+            <button class="btn-secondary" (click)="cancelEdit()">Cancel</button>
+          </div>
+        </div>
+
+        <!-- View Mode -->
+        <div
+          class="amenity-view"
+          *ngIf="!editingAmenity || editingAmenity.id !== amenity.id">
+
+          <div class="info">
+            <strong>{{ amenity.name }}</strong>
+            <span>{{ amenity.description || 'No description' }}</span>
+          </div>
+
+          <div class="actions">
+            <button class="btn-secondary" (click)="editAmenity(amenity)">
+              Edit
+            </button>
+            <button class="btn-danger" (click)="deleteAmenity(amenity.id)">
+              Delete
+            </button>
+          </div>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+
+</div>

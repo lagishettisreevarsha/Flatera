@@ -1,1 +1,168 @@
-/* Towers styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* =====================
+   BASE
+===================== */
+* {
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+  padding: 2rem 2.5rem;
+  background: #f4f1ed;
+  font-family: 'Inter', sans-serif;
+  color: #2f2a26;
+}
+
+/* =====================
+   HEADER
+===================== */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.page-header h3 {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+/* =====================
+   ADD TOWER
+===================== */
+.add-tower {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add-tower input {
+  padding: 0.55rem 0.75rem;
+  font-size: 0.85rem;
+  background: #fbfaf8;
+  border: 1px solid #e6dfd8;
+  outline: none;
+}
+
+.add-tower input:focus {
+  border-color: #a8896c;
+}
+
+/* =====================
+   ALERTS
+===================== */
+.error {
+  margin: 0.6rem 0;
+  padding: 0.5rem 0.6rem;
+  background: #fce8e6;
+  border: 1px solid #f5c2bd;
+  color: #c94b3c;
+  font-size: 0.85rem;
+}
+
+.success {
+  margin: 0.6rem 0;
+  padding: 0.5rem 0.6rem;
+  background: #edf7f2;
+  border: 1px solid #cde8dc;
+  color: #2f9e72;
+  font-size: 0.85rem;
+}
+
+/* =====================
+   LIST
+===================== */
+.tower-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.tower-item {
+  background: #ffffff;
+  border: 1px solid #e6dfd8;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =====================
+   INFO
+===================== */
+.tower-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2f2a26;
+}
+
+/* =====================
+   ACTIONS
+===================== */
+.actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #a8896c;
+  color: #ffffff;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #8f735a;
+}
+
+.btn-secondary {
+  background: #e6dfd8;
+  color: #2f2a26;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #d8cfc6;
+}
+
+.btn-danger {
+  background: #f3e1de;
+  color: #b84536;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background: #e8cbc6;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 600px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-tower {
+    width: 100%;
+  }
+
+  .add-tower input {
+    flex: 1;
+  }
+}

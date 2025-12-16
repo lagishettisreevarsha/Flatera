@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* =====================
+   BASE
+===================== */
+* {
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+  padding: 2rem 2.5rem;
+  background: #f4f1ed;
+  font-family: 'Inter', sans-serif;
+  color: #2f2a26;
+}
+
+/* =====================
+   HEADER
+===================== */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.dashboard-header h2 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Logout */
+.logout-btn {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #a8896c;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #8f735a;
+}
+
+/* =====================
+   NAVIGATION
+===================== */
+.dashboard-nav {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-nav a {
+  padding: 0.45rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #2f2a26;
+  background: #ffffff;
+  border: 1px solid #e6dfd8;
+}
+
+.dashboard-nav a:hover {
+  border-color: #a8896c;
+  color: #a8896c;
+}
+
+/* Active link */
+.dashboard-nav a.active {
+  background: #a8896c;
+  color: #ffffff;
+  border-color: #a8896c;
+}
+
+/* =====================
+   DESCRIPTION
+===================== */
+.dashboard-desc {
+  font-size: 0.9rem;
+  color: #7a6f66;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 600px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .logout-btn {
+    align-self: flex-end;
+  }
+}

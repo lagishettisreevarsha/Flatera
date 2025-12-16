@@ -1,1 +1,87 @@
-/* Tenants styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* =====================
+   BASE
+===================== */
+* {
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+  padding: 2rem 2.5rem;
+  background: #f4f1ed;
+  font-family: 'Inter', sans-serif;
+  color: #2f2a26;
+}
+
+/* =====================
+   HEADER
+===================== */
+.page-header h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #7a6f66;
+}
+
+/* =====================
+   EMPTY STATE
+===================== */
+.empty-state {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid #e6dfd8;
+  color: #7a6f66;
+  font-size: 0.9rem;
+}
+
+/* =====================
+   LIST
+===================== */
+.tenant-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.4rem;
+}
+
+.tenant-item {
+  background: #ffffff;
+  border: 1px solid #e6dfd8;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+/* =====================
+   INFO
+===================== */
+.tenant-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.tenant-name {
+  font-weight: 600;
+  color: #2f2a26;
+}
+
+.tenant-flat,
+.tenant-tower {
+  color: #7a6f66;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 600px) {
+  .tenant-info {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}

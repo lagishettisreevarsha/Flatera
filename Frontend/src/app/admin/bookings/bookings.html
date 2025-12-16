@@ -1,10 +1,43 @@
-<div>
-  <h3>Pending Bookings</h3>
-  <ul>
-    <li *ngFor="let b of bookings">
-      #{{ b.id }} - {{ b.tenant_name || b.user_name || 'User' }} - Flat {{ b.flat_id }} - Status: {{ b.status }}
-      <button (click)="approve(b)">Approve</button>
-      <button (click)="decline(b)">Decline</button>
+<div class="bookings-page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <h3>Pending Bookings</h3>
+    <p class="subtitle">Review and manage booking requests</p>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!bookings.length" class="empty-state">
+    No pending bookings available.
+  </div>
+
+  <!-- Booking List -->
+  <ul class="booking-list">
+    <li *ngFor="let b of bookings" class="booking-item">
+
+      <div class="booking-info">
+        <span class="booking-id">#{{ b.id }}</span>
+        <span class="booking-user">
+          {{ b.tenant_name || b.user_name || 'User' }}
+        </span>
+        <span class="booking-flat">
+          Flat {{ b.flat_id }}
+        </span>
+        <span class="booking-status">
+          {{ b.status }}
+        </span>
+      </div>
+
+      <div class="booking-actions">
+        <button class="btn-approve" (click)="approve(b)">
+          Approve
+        </button>
+        <button class="btn-decline" (click)="decline(b)">
+          Decline
+        </button>
+      </div>
+
     </li>
   </ul>
+
 </div>

@@ -1,8 +1,35 @@
-<div>
-  <h3>Tenants</h3>
-  <ul>
-    <li *ngFor="let t of tenants">
-      {{ t.user_name || t.name }} - Flat {{ t.flat_no || t.flat_id }} - Tower {{ t.tower_name || t.tower_id }}
+<div class="tenants-page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <h3>Tenants</h3>
+    <p class="subtitle">View tenants and their assigned flats</p>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!tenants.length" class="empty-state">
+    No tenants found.
+  </div>
+
+  <!-- Tenants List -->
+  <ul class="tenant-list">
+    <li *ngFor="let t of tenants" class="tenant-item">
+
+      <div class="tenant-info">
+        <span class="tenant-name">
+          {{ t.user_name || t.name }}
+        </span>
+
+        <span class="tenant-flat">
+          Flat {{ t.flat_no || t.flat_id }}
+        </span>
+
+        <span class="tenant-tower">
+          Tower {{ t.tower_name || t.tower_id }}
+        </span>
+      </div>
+
     </li>
   </ul>
+
 </div>

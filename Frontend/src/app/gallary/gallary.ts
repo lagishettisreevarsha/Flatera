@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gallary',
@@ -9,26 +10,32 @@ import { CommonModule } from '@angular/common';
 })
 export class Gallary {
   
+  constructor(private router: Router) {}
+  
+  goBack(): void {
+    this.router.navigate(['/landing']);
+  }
+  
   images = [
    
     {
-      url: 'https://i.pinimg.com/1200x/4b/9c/49/4b9c49bd73e47982937bd01585c9cd74.jpg',
+      url: 'https://i.pinimg.com/1200x/55/22/1c/55221c4acc39b9198f267807e9f1b57c.jpg',
       title: 'Master Bedroom',
       description: 'Elegant master suite with panoramic city views'
     },
   
     {
-      url: 'https://i.pinimg.com/736x/aa/d5/0d/aad50dbfe766bb32ad7f7c31ddb5f3a8.jpg',
+      url: 'https://i.pinimg.com/1200x/4c/c1/9c/4cc19c079fd6623fb65a135866a85dc7.jpg',
       title: 'Modern Kitchen',
       description: 'Contemporary kitchen with island and premium appliances'
     },
     {
-      url: 'https://i.pinimg.com/736x/ad/5e/98/ad5e98535b8834b60cd5e44d41c1d090.jpg',
+      url: 'https://i.pinimg.com/736x/31/fd/a5/31fda535b69c5d342412536c074a8232.jpg',
       title: 'Elegant Bedroom',
       description: 'Sophisticated bedroom with luxurious textiles and decor'
     },
     {
-      url: 'https://i.pinimg.com/1200x/da/93/a7/da93a72e64c94e440f539193488fb80b.jpg',
+      url: 'https://i.pinimg.com/1200x/03/51/60/035160ceb2380c07e2b6e5a2c704c3fd.jpg',
       title: 'Luxury Suite',
       description: 'Spacious suite with panoramic windows and modern furnishings'
     },
@@ -38,17 +45,17 @@ export class Gallary {
       description: 'High-end living space with designer furniture and art'
     },
     {
-      url: 'https://i.pinimg.com/736x/73/48/6f/73486f2a202cbb124ff98f5733331d62.jpg',
+      url: 'https://i.pinimg.com/1200x/e0/39/12/e039122635403492b62e800ec9e6aba7.jpg',
       title: 'Penthouse View',
       description: 'Exclusive penthouse with breathtaking city skyline views'
     },
     {
-      url: 'https://i.pinimg.com/736x/32/75/1e/32751e511b073258f0a8798f01fd4044.jpg',
+      url: 'https://i.pinimg.com/1200x/7f/15/80/7f15803cc853142af8b4f0c75c33c65f.jpg',
       title: 'Marble Bathroom',
       description: 'Luxurious bathroom with marble finishes and modern fixtures'
     },
     {
-      url: 'https://i.pinimg.com/736x/d3/d7/4d/d3d74ddcd1277ab7faedbc83bb27e729.jpg',
+      url: 'https://i.pinimg.com/736x/22/e9/22/22e922640c7450433cb3a61d41e8655c.jpg',
       title: 'Gourmet Dining',
       description: 'Elegant dining area with premium materials and lighting'
     },
@@ -63,10 +70,16 @@ export class Gallary {
       description: 'Premium suite with executive amenities and sophisticated design'
     },
     {
-      url: 'https://i.pinimg.com/1200x/8a/5b/f9/8a5bf99443de968716aa32c0b10b1feb.jpg',
+      url: 'https://i.pinimg.com/736x/4a/fa/81/4afa81c6a19c9a2284342a2464115561.jpg',
       title: 'Sky Lounge',
       description: 'Exclusive lounge area with panoramic city and sky views'
+    },
+    {
+      url: 'https://i.pinimg.com/474x/05/fc/9d/05fc9d39ac383eea6b85c0321771c326.jpg',
+      title: 'Sky view balcony',
+      description: 'Exclusive lounge area with panoramic city and sky views'
     }
+
   ];
 
 }

@@ -13,6 +13,6 @@ export class Dashboard {
   constructor(private auth: Auth, private router: Router) {}
   onLogout() {
     this.auth.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/landing']);
   }
 }

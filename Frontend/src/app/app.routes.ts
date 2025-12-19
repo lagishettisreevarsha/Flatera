@@ -25,19 +25,7 @@ export const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { 
     path: 'landing', 
-    component: Landing,
-    canActivate: [() => {
-      const router = inject(Router);
-      const token = localStorage.getItem('token');
-      const role = localStorage.getItem('role');
-      
-      if (token) {
-        // If authenticated, redirect to appropriate dashboard
-        router.navigate([role === 'admin' ? '/admin/dashboard' : '/public/home']);
-        return false;
-      }
-      return true;
-    }]
+    component: Landing
   },
   { path: 'gallery', component: Gallary },
   { path: 'login', component: Login, canActivate: [guestGuard] },

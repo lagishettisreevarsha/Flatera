@@ -13,13 +13,14 @@ import { CommonModule } from '@angular/common';
 export class Login {
   email = '';
   password = '';
+  role = 'user'; // Default to user role
   error: string | null = null;
 
   constructor(private api: Auth, private router: Router) {}
 
   onLogin() {
     this.error = null;
-    this.api.login({ email: this.email, password: this.password })
+    this.api.login({ email: this.email, password: this.password, role: this.role })
       .subscribe({
         next: (res: any) => {
           localStorage.setItem('token', res.access_token);

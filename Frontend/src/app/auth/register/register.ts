@@ -14,18 +14,14 @@ export class Register {
   name = '';
   email = '';
   password = '';
-  role = '';
   error: string | null = null;
 
   constructor(private api: Auth, private router: Router) {}
 
   onRegister() {
     this.error = null;
-    if (!this.role) {
-      this.error = 'Please select a role.';
-      return;
-    }
-    this.api.register({ name: this.name, email: this.email, password: this.password, role: this.role })
+    // Default all new registrations to 'user' role
+    this.api.register({ name: this.name, email: this.email, password: this.password, role: 'user' })
       .subscribe({
         next: () => this.router.navigate(['/login']),
         error: (err) => {

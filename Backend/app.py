@@ -5,6 +5,7 @@ from routes.auth_routes  import auth_bp
 from routes.public_routes import public_bp
 from routes.admin_routes import admin_bp
 from flask_cors import CORS
+from models.user import User
 
 app=Flask(__name__)
 CORS(app,origins=["http://localhost:4200"])
@@ -19,7 +20,30 @@ app.register_blueprint(auth_bp,url_prefix='/auth')
 app.register_blueprint(public_bp,url_prefix='/public')
 app.register_blueprint(admin_bp,url_prefix='/admin')
 
+# Create default admin user
+def create_default_admin():
+    admin_email = "admin@flatera.com"
+    admin_password = "admin123"
+    
+    # Check if admin already exists
+    existing_admin = User.query.filter_by(email=admin_email).first()
+    if not existing_admin:
+        admin_user = User(
+            name="Flatera Admin",
+            email=admin_email,
+            role="admin"
+        )
+        admin_user.set_password(admin_password)
+        db.session.add(admin_user)
+        db.session.commit()
+        print("Default admin user created successfully!")
+        print(f"Email: {admin_email}")
+        print(f"Password: {admin_password}")
+    else:
+        print("Admin user already exists!")
+
 if __name__=="__main__":
     with app.app_context():
         db.create_all()
+        create_default_admin()
     app.run(debug=True)

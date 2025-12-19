@@ -42,11 +42,26 @@ body {
   align-items: center;
 }
 
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(212, 165, 116, 0.3);
+}
+
 .nav-logo h1 {
   font-family: 'Playfair Display', serif;
   font-size: 2rem;
   font-weight: 700;
   color: #1a1a1a;
+  margin: 0;
 }
 
 .nav-menu {
@@ -59,11 +74,29 @@ body {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
 }
 
 .nav-link:hover {
-  color: #6F4E37;
+  color: #d4a574;
+  transform: translateY(-1px);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #d4a574, #9b7d61);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .nav-btn {
@@ -73,27 +106,31 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
 }
 
 .nav-btn.primary {
-  background: #6F4E37;
+  background: linear-gradient(135deg, #c89666, #8b6f47);
   color: white;
 }
 
 .nav-btn.primary:hover {
-  background: #4A3426;
+  background: linear-gradient(135deg, #8b6f47, #c89666);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 150, 102, 0.4);
 }
 
 .nav-btn.secondary {
   background: transparent;
-  color: #6F4E37;
-  border: 2px solid #6F4E37;
+  color: #d4a574;
+  border: 2px solid #d4a574;
 }
 
 .nav-btn.secondary:hover {
-  background: #6F4E37;
+  background: linear-gradient(135deg, #d4a574, #9b7d61);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
 }
 
 /* =====================
@@ -171,24 +208,25 @@ body {
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #6F4E37, #4A3426);
+  background: linear-gradient(135deg, #d4a574, #9b7d61);
   color: white;
-  box-shadow: 0 10px 25px rgba(111, 78, 55, 0.3);
+  box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
 }
 
 .btn.primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(111, 78, 55, 0.4);
+  box-shadow: 0 15px 35px rgba(212, 165, 116, 0.4);
+  background: linear-gradient(135deg, #9b7d61, #d4a574);
 }
 
 .btn.outline {
   background: transparent;
-  color: #6F4E37;
-  border: 2px solid #6F4E37;
+  color: #d4a574;
+  border: 2px solid #d4a574;
 }
 
 .btn.outline:hover {
-  background: #6F4E37;
+  background: linear-gradient(135deg, #d4a574, #9b7d61);
   color: white;
   transform: translateY(-3px);
 }
@@ -198,7 +236,7 @@ body {
 ===================== */
 .features {
   padding: 6rem 0;
-  background: white;
+  background: linear-gradient(135deg, #f8f6f3 0%, #f4f1ed 100%);
 }
 
 .features .container {
@@ -219,6 +257,7 @@ body {
   color: #666;
   max-width: 600px;
   margin: 0 auto 4rem;
+  line-height: 1.8;
 }
 
 .features-grid {
@@ -231,9 +270,7 @@ body {
   background: white;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+  box-shadow: 0 15px 35px rgba(212, 165, 116, 0.2);
 }
 
 .feature-card:hover {
@@ -419,7 +456,7 @@ body {
    GALLERY SECTION
 ===================== */
 .gallery {
-  padding: 6rem 0;
+  padding: 2rem 0 6rem 0;
   background: #f8f9fa;
 }
 
@@ -440,7 +477,7 @@ body {
   font-size: 1.25rem;
   color: #666;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 4rem auto;
 }
 
 .gallery-grid {

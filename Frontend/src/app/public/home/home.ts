@@ -93,6 +93,6 @@ export class HomeComponent implements OnInit {
   onLogout(): void {
     // Handle logout logic
     this.auth.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/landing']);
   }
 }

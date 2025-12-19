@@ -33,6 +33,18 @@ def login():
     if not user or not user.check_password(data["password"]):
         return jsonify({"message": "Invalid credentials"}), 401
 
+    # Check if user is trying to login as admin
+    requested_role = data.get("role", "user")
+    
+    # If requesting admin role, verify user is actually admin
+    if requested_role == "admin" and user.role != "admin":
+        return jsonify({"message": "Access denied. Admin credentials required."}), 403
+    
+    # If requesting user role but user is admin, allow admin to login as user (optional)
+    # Or you can restrict this by uncommenting the following:
+    # if requested_role == "user" and user.role == "admin":
+    #     return jsonify({"message": "Please use admin login for admin accounts."}), 403
+
     access_token = create_access_token(
         identity=str(user.id),
         additional_claims={

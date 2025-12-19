@@ -82,6 +82,30 @@ body::before {
   margin-bottom: 1rem;
 }
 
+.nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+}
+
+.nav-logo h1 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
 .auth-header h1 {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
@@ -102,7 +126,7 @@ body::before {
    FORM ELEMENTS
 ===================== */
 .form-group {
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -196,9 +220,9 @@ body::before {
 ===================== */
 .auth-footer {
   text-align: center;
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(111, 78, 55, 0.08);
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(212, 165, 116, 0.2);
 }
 
 .auth-footer p {
@@ -232,6 +256,42 @@ body::before {
 }
 
 .auth-footer a:hover::after {
+  width: 100%;
+}
+
+.footer-link {
+  text-align: center;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(212, 165, 116, 0.2);
+  color: #6F4E37;
+  font-size: 0.9rem;
+}
+
+.footer-link a {
+  color: #d4a574;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-link a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #d4a574;
+  transition: width 0.3s ease;
+}
+
+.footer-link a:hover {
+  color: #9b7d61;
+}
+
+.footer-link a:hover::after {
   width: 100%;
 }
 

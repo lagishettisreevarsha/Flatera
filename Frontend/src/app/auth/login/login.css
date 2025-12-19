@@ -57,7 +57,7 @@ body::before {
   backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  padding: 3rem;
+  padding: 1.5rem;
   width: 100%;
   max-width: 420px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -77,7 +77,31 @@ body::before {
 
 .auth-header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
+}
+
+.nav-logo h1 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
 }
 
 .auth-header h1 {
@@ -98,7 +122,7 @@ body::before {
    FORM ELEMENTS
 ===================== */
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -130,6 +154,32 @@ body::before {
 
 .form-group input::placeholder {
   color: #a8896c;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e6dfd8;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  color: #2a1f1b;
+  cursor: pointer;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #d4a574;
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.form-group select option {
+  background: #ffffff;
+  color: #2a1f1b;
+  padding: 0.5rem;
 }
 
 /* =====================
@@ -187,6 +237,42 @@ body::before {
 
 .auth-footer a:hover {
   color: #9b7d61;
+}
+
+.footer-link {
+  text-align: center;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(212, 165, 116, 0.2);
+  color: #6F4E37;
+  font-size: 0.9rem;
+}
+
+.footer-link a {
+  color: #d4a574;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-link a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #d4a574;
+  transition: width 0.3s ease;
+}
+
+.footer-link a:hover {
+  color: #9b7d61;
+}
+
+.footer-link a:hover::after {
+  width: 100%;
 }
 
 /* =====================

@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ConfigService } from './config.service';
 
 @Injectable({ providedIn: 'root' })
 export class Auth{
-  private API = 'http://127.0.0.1:5000';
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private configService: ConfigService) {}
 
   get apiUrl(): string {
-    return this.API;
+    return this.configService.apiUrl;
   }
 
   register(data: any) {
-    return this.http.post(`${this.API}/auth/register`, data);
+    return this.http.post(`${this.apiUrl}/auth/register`, data);
   }
 
   login(data: any) {
-    return this.http.post(`${this.API}/auth/login`, data);
+    return this.http.post(`${this.apiUrl}/auth/login`, data);
   }
 
   logout() {
@@ -25,77 +24,77 @@ export class Auth{
   }
 
   getFlats() {
-    return this.http.get(`${this.API}/public/flats`);
+    return this.http.get(`${this.apiUrl}/public/flats`);
   }
 
   getFlatDetails(flatId: string) {
-    return this.http.get(`${this.API}/public/flats/${flatId}`);
+    return this.http.get(`${this.apiUrl}/public/flats/${flatId}`);
   }
 
   requestBooking(flatId: number) {
-    return this.http.post(`${this.API}/public/book/${flatId}`, {});
+    return this.http.post(`${this.apiUrl}/public/book/${flatId}`, {});
   }
 
   getMyBookings() {
-    return this.http.get(`${this.API}/public/bookings`);
+    return this.http.get(`${this.apiUrl}/public/bookings`);
   }
 
   getPendingBookings() {
-    return this.http.get(`${this.API}/admin/bookings`);
+    return this.http.get(`${this.apiUrl}/admin/bookings`);
   }
   approveBooking(bookingId: number) {
-    return this.http.post(`${this.API}/admin/booking/${bookingId}/approve`, {});
+    return this.http.post(`${this.apiUrl}/admin/booking/${bookingId}/approve`, {});
   }
   declineBooking(bookingId: number) {
-    return this.http.post(`${this.API}/admin/booking/${bookingId}/decline`, {});
+    return this.http.post(`${this.apiUrl}/admin/booking/${bookingId}/decline`, {});
   }
 
   getTowers() {
-    return this.http.get(`${this.API}/admin/towers`);
+    return this.http.get(`${this.apiUrl}/admin/towers`);
   }
   createTower(data: { name: string }) {
-    return this.http.post(`${this.API}/admin/towers`, data);
+    return this.http.post(`${this.apiUrl}/admin/towers`, data);
   }
   updateTower(towerId: number, data: { name: string }) {
-    return this.http.put(`${this.API}/admin/towers/${towerId}`, data);
+    return this.http.put(`${this.apiUrl}/admin/towers/${towerId}`, data);
   }
   deleteTower(towerId: number) {
-    return this.http.delete(`${this.API}/admin/towers`, { body: { tower_id: towerId } });
+    return this.http.delete(`${this.apiUrl}/admin/towers`, { body: { tower_id: towerId } });
   }
 
   getAdminFlats() {
-    return this.http.get(`${this.API}/admin/flats`);
+    return this.http.get(`${this.apiUrl}/admin/flats`);
   }
   
 
   addFlat(data: any) {
-    return this.http.post(`${this.API}/admin/flats`, data);
+    return this.http.post(`${this.apiUrl}/admin/flats`, data);
   }
   updateFlat(flatId: number, data: any) {
-    return this.http.put(`${this.API}/admin/flats/${flatId}`, data);
+    return this.http.put(`${this.apiUrl}/admin/flats/${flatId}`, data);
   }
   deleteFlat(flatId: number) {
-    return this.http.delete(`${this.API}/admin/flats/${flatId}`);
+    return this.http.delete(`${this.apiUrl}/admin/flats/${flatId}`);
   }
 
   getAmenities() {
-    return this.http.get(`${this.API}/admin/amenities`);
+    return this.http.get(`${this.apiUrl}/admin/amenities`);
   }
   addAmenity(data: any) {
-    return this.http.post(`${this.API}/admin/amenities`, data);
+    return this.http.post(`${this.apiUrl}/admin/amenities`, data);
   }
   updateAmenity(amenityId: number, data: { name: string }) {
-    return this.http.put(`${this.API}/admin/amenities/${amenityId}`, data);
+    return this.http.put(`${this.apiUrl}/admin/amenities/${amenityId}`, data);
   }
   deleteAmenity(amenityId: number) {
-    return this.http.delete(`${this.API}/admin/amenities/${amenityId}`);
+    return this.http.delete(`${this.apiUrl}/admin/amenities/${amenityId}`);
   }
 
   getTenants() {
-    return this.http.get(`${this.API}/admin/tenants`);
+    return this.http.get(`${this.apiUrl}/admin/tenants`);
   }
 
   getPublicAmenities() {
-    return this.http.get(`${this.API}/public/amenities`);
+    return this.http.get(`${this.apiUrl}/public/amenities`);
   }
 }
